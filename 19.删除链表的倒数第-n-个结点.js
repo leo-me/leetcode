@@ -1,4 +1,12 @@
 /*
+ * @Author: leo-me leo.me0602@gmail.com
+ * @Date: 2022-07-20 19:28:16
+ * @LastEditors: leo-me leo.me0602@gmail.com
+ * @LastEditTime: 2022-07-20 20:03:17
+ * @FilePath: /leetcode/19.删除链表的倒数第-n-个结点.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
  * @lc app=leetcode.cn id=19 lang=javascript
  *
  * [19] 删除链表的倒数第 N 个结点
@@ -71,6 +79,20 @@
 var removeNthFromEnd = function(head, n) {
     // 双指针 p1 先走k步， p1 、p2 一起走 n-k 步，p2 当前节点即为倒数第k个节点
     // 一个dummy 节点指向 头节点
+    let dummy = new ListNode(0, head);
+    let p1 = p2 = dummy;
+    while(n--) {
+        p1 = p1.next;
+    }
+
+    while(p1.next !== null) {
+        p1 = p1.next;
+        p2 = p2.next
+    }
+
+    p2.next = p2.next.next;
+
+    return dummy.next;
 
 };
 // @lc code=end
