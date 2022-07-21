@@ -30,7 +30,7 @@ var leftBound = function(nums, target) {
         }
     }
       // 检查出界情况
-      if (left >= nums.length || nums[left] != target) {
+      if (left >= nums.length || nums[left] !== target) {
         return -1;
     }
     return left;
@@ -52,8 +52,9 @@ var rightBound = function(nums, target) {
             left = mid + 1;
         }
     }
-      // 检查出界情况
-      if (right < 0 || nums[left] != target) {
+
+    // 检查出界情况
+    if (right < 0 || nums[right] !== target) {
         return -1;
     }
     return right;
