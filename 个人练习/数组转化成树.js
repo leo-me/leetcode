@@ -1,27 +1,31 @@
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+
 function  generateTree(arr) {
 
-    let stack = [];
+    let head = new TreeNode(arr[0]);
 
-    const findChid = function(i) {
-        if(arr[i]) {stack.push(arr[i])};
+    const findChid = function(i, head) {
 
-        if(arr[i] === null) {
-            stack.push(arr[i]);
-            findChid(i+1);
-        }
 
         if(arr[i*2 + 1]) {
-            findChid(i*2 + 1);
+            head.left = new TreeNode(arr[i*2 + 1]);
+            findChid(i*2 + 1, head.left);
         }
         if(arr[i*2 + 2]) {
-            findChid(i*2 + 2);
+            head.right = new TreeNode(arr[i*2 + 2]);
+            findChid(i*2 + 2, head.right);
         }
 
     }
 
-    findChid(0);
+    findChid(0, head);
 
-    return stack;
+    return head;
 }
 
 let s = [3, null, 4,null,null, 1, 3];
