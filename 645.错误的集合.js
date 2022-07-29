@@ -53,7 +53,27 @@
  * @return {number[]}
  */
 var findErrorNums = function(nums) {
+    let len = nums.length;
+    let res = [];
+    nums.sort((a, b) => a - b);
+    let prev = 0;
 
+    for(let i =0; i< len; i++) {
+        let cur = nums[i];
+
+        if(cur === prev) {
+            res[0] = cur;
+        } else if(cur - prev > 1) {
+            res[1] = prev +1;
+        }
+        prev = cur;
+    }
+
+    if(nums[len-1] !== len) {
+        res[1] = len;
+    }
+
+    return res;
 
 };
 // @lc code=end
