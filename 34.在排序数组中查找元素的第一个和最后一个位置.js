@@ -48,7 +48,7 @@ var rightBound = function(nums, target) {
             // 搜索区间变为 [left, mid-1]
             right = mid - 1;
         } else if (nums[mid] === target) {
-            // 收缩右侧边界
+            // 收缩左侧边界
             left = mid + 1;
         }
     }

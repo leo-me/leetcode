@@ -29,7 +29,7 @@ var deleteDuplicates = function(head) {
         fast = fast.next;
     }
 
-    // 断开与后面重复元素链接
+    // 如果后面还有重复元素，断开与后面重复元素链接
     slow.next = null;
 
     return head;
