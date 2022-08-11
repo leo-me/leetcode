@@ -41,6 +41,7 @@ LRUCache.prototype.put = function(key, value) {
 
     this.map.set(key, value);
 
+    // 一个一个插入，因此只需要删除一个
     if(this.map.size > this.cap) {
         let iterator = this.map.keys();
         this.map.delete(iterator.next().value);

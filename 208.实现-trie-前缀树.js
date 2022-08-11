@@ -32,10 +32,9 @@ Trie.prototype.insert = function(word) {
  */
 Trie.prototype.search = function(word) {
     const node = this.searchPrefix(word);
-
     return node !== undefined && node.isEnd !== undefined;
-
 };
+
 
 /**
  * @param {string} prefix

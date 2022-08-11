@@ -54,7 +54,7 @@ var nSum = function(nums, n, start, target) {
                 sub.forEach(s => res.push([...s, nums[i]]));
             }
 
-            // 重复
+            // 数字重复
             while (i < sz - 1 && nums[i] == nums[i + 1]) i++;
         }
 

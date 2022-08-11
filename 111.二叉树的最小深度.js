@@ -29,7 +29,7 @@ var minDepth = function(root) {
        let size = queue.length;
        for(let i = 0; i < size; i++) {
           let cur = queue.shift();
-           // 到了最底的节点
+           // 到了最小深度的最底的节点
           if(cur.left === null && cur.right === null) {
             return depth;
           }
@@ -43,7 +43,7 @@ var minDepth = function(root) {
        }
         depth++;
     }
-    // 第一次找到的就是最小深度
+    // cheng第一次找到的就是最小深度
     return depth;
 
 };
