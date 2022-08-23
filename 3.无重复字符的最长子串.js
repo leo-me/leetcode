@@ -66,13 +66,19 @@ var lengthOfLongestSubstring = function(s) {
     while(right < s.length) {
         let char = s[right]
         right++;
-        window[char] ? window[char]++ : window[char] = 1;
+        if(window[char]) {
+            window[char]++
+        } else {
+            window[char] = 1;
+        }
 
         while(window[char] > 1) {
             let lc = s[left];
+            // 窗口缩小
             left++;
             window[lc] --;
         }
+
         res = Math.max(res, right - left);
     }
 
