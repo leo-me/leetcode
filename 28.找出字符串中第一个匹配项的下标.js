@@ -16,10 +16,9 @@ var strStr = function(haystack, needle) {
   function kmp(pat) {
 
     let M = pat.length;
-    dp = new Array(M).fill(new Array(256).fill(0))
+    dp = new Array(M).fill(0).map(() => new Array(256).fill(0));
 
-
-    dp[0][pat[0].charCodeAt()] = 1;
+    dp[0][pat.charCodeAt(0)] = 1;
 
     let x = 0;
 
@@ -29,19 +28,19 @@ var strStr = function(haystack, needle) {
       }
       dp[j][pat[j].charCodeAt()] = j+1;
 
-      x = dp[x][pat.charAt[j]];
+      x = dp[x][pat.charCodeAt(j)];
     }
   }
 
   kmp(needle);
 
   function search(txt) {
-    let M = pat.length;
+    let M = needle.length;
     let n = txt.length;
 
     let j = 0;
     for(let i =0; i < n; i++) {
-      j = dp[j][txt.charAt(i)];
+      j = dp[j][txt.charCodeAt(i)];
 
       if(j === M) return i - M +1;
     }
@@ -58,3 +57,4 @@ var strStr = function(haystack, needle) {
 
 const res = strStr('sadbutsad', 'sad');
 console.log('res: ', res);
+// return res;
