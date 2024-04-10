@@ -11,7 +11,7 @@
  */
 var countAndSay = function(n) {
     let str = "1";
-    for (let i = 2; i <= n; ++i) {
+    for (let i = 2; i <= n; i++) {
         const sb = [];
         let start = 0;
         let pos = 0;
