@@ -39,23 +39,7 @@ var insert = function(intervals, newInterval) {
     res.push([left, right]);
   }
 
-  // 合并重叠区间
-  let merged = [];
-  let i = 0;
-  while (i < res.length) {
-    let start = res[i][0];
-    let end = res[i][1];
-    while (i < res.length - 1 && res[i + 1][0] <= end) {
-      // 更新区间的右边界
-      end = Math.max(end, res[i + 1][1]);
-      i++;
-    }
-    // 添加合并后的区间
-    merged.push([start, end]);
-    i++;
-  }
-
-  return merged;
+  return res;
 };
 
 // @lc code=end
