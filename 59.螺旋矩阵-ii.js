@@ -17,12 +17,7 @@ var generateMatrix = function(n) {
 
   let left_bound = 0, right_bound = n - 1;
 
-  let res = [] ;
-
-  for (let i = 0; i < n; i++) {
-    res.push(new Array(n).fill(0));
-  }
-
+  let res = new Array(n).fill([]).map(() => new Array(n).fill(0));
   
 
   let cur = 0;
