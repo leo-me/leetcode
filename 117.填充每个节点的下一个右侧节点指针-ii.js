@@ -1,4 +1,12 @@
 /*
+ * @Author: leo-me leo.me0602@gmail.com
+ * @Date: 2024-05-26 15:00:59
+ * @LastEditors: leo-me leo.me0602@gmail.com
+ * @LastEditTime: 2024-05-26 15:04:46
+ * @FilePath: /leetcode/117.填充每个节点的下一个右侧节点指针-ii.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
  * @lc app=leetcode.cn id=117 lang=javascript
  *
  * [117] 填充每个节点的下一个右侧节点指针 II
@@ -20,29 +28,33 @@
  * @return {Node}
  */
 var connect = function(root) {
-    let queue = [];
-    let res  = [];
+    if (root === null) return null;
 
-    if (root === null) return res;
+    const q = [];
 
-    let start = root;
-    while(start) {
+    q.push(root);
 
-        res.push(start.val);
+    while (q.length) {
+        const len = q.length;
 
-        if(start.left) {
-            queue.push(start.left);
+        let pre = null;
+
+        for(let i = 0; i < len; i++) {
+            const cur = q.shift();
+
+            if (pre !== null) {
+                pre.next = cur;
+            }
+
+            pre = cur;
+
+            if (cur.left) q.push(cur.left);
+
+            if (cur.right) q.push(cur.right);
         }
-
-        if (queue.right) {
-            queue.push(queue.right)
-        } else {
-            queue.push(null);
-        }
-
-        start = queue.shift();
     }
 
+    return root;
 
 };
 // @lc code=end
