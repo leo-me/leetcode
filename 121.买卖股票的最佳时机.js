@@ -19,8 +19,9 @@ var maxProfit = function(prices) {
             dp[i][1] = -prices[i];
             continue;
         }
-        dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]+prices[i]);
-        dp[i][1] = Math.max(dp[i-1][1], -prices[i]);
+        dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + prices[i]);
+        // 只允许买入一次，所以只有在买入的时候才会减少利润
+        dp[i][1] = Math.max(dp[i-1][1], - prices[i]);
     }
 
     return dp[n-1][0];
