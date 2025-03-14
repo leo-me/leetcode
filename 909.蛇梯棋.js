@@ -27,6 +27,7 @@ var snakesAndLadders = function(board) {
     const queue = [[1, 0]];
     while (queue.length) {
         const p = queue.shift();
+        
         for (let i = 1; i <= 6; ++i) {
             let nxt = p[0] + i;
 
